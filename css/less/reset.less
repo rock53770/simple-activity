@@ -1,0 +1,96 @@
+﻿* {
+   -webkit-tap-highlight-color: rgba(0,0,0,0);/*禁掉input边框点击出现橘色线框*/
+   //-webkit-user-select:​ none;/*禁掉文字的复制、复用*/
+   outline-style: none!important;
+}
+
+html, body, p, ul, ol, li, article, input,
+form, pre, fieldset, button, textarea, pre,
+table, td, th, tr, blockquote, legend, section,
+div, dl, dt, dd, label, span, table, h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+html {
+  font-size: 14px;
+  height:100%;
+}
+html,body{
+  min-height: 100%;
+  position: relative;
+}
+body {
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    //-webkit-user-select: none;
+    -webkit-touch-callout: none;
+    font-size:14px;
+    color:#333;
+    background-color: #f5f5f5;
+    // f2f2f2
+    font-family:"Helvetica Neue", "\9ED1\4F53", "SimHei", sans-serif;
+}
+
+ul, ol, li {
+    list-style: none;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+img {
+  border: 0;
+}
+
+a {
+  appearance: none;
+  text-decoration: none;
+  background: transparent;
+  color:#333;
+  &:hover,
+  &:active,
+  &:link,
+  &:visited {
+    text-decoration: none;
+  }
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+button[disabled],
+input[disabled] {
+  -webkit-appearance: none;
+  cursor: default;
+  //background-color:#ddd;
+  opacity:0.6;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input:-webkit-autofill,
+select:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+button,
+input {
+  overflow: visible;
+  -webkit-appearance: none;
+}
+::-webkit-search-cancel-button {
+  display: none;
+}

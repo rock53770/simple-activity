@@ -1,0 +1,15 @@
+node_modules/
+typings/
+npm-debug.json
+npm-debug.log
+.vscode/
+.idea/
+.*/
+.svn/
+dist/
+.DS_Store
+
+aspnet_client/
+Gruntfile.json
+
+package-lock.json

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Keywords" content="新欣保保险 保险 网络 科技">
+<meta name="description" content="新欣保保险">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>新欣保保险感恩节</title>
+<link href="../../css/vant.min.css" rel="stylesheet">
+<link href="../../css/common.css" rel="stylesheet">
+<script src="../../plugins/zepto.min.js"></script>
+<script>
+	(function () {
+		function e() {
+		var f = document.documentElement.clientWidth * 200 / 750;
+		window.fontSize = f;
+		document.querySelector("html").style.fontSize = f + "px"
+		}
+		e();
+		window.addEventListener("resize", e)
+	})();
+</script>
+</head>
+<body style="background-color:#C30D22;">
+<div class="box">
+	<img src="img/1.jpg" class="w-100 show">
+	<div class="pos-a t0 l0 w-100">
+		<div @click="invitate" class="bg-orange1" style="height:0.5rem;width:2rem;margin:3.35rem auto 0.94rem"></div>
+		<div @click="share" class="bg-orange1" style="height:0.5rem;width:2rem; margin:0 auto"></div>
+	</div>
+</div>
+</body>
+<script src="../../plugins/vue.min.js"></script>
+<script src="../../plugins/vant.min.js"></script>
+<script src="../../plugins/util.js"></script>
+<script>
+var GConfig = {
+	appId:"wx3000c783b31e6ddd"
+}
+if(location.host === 'wxtest.bz-ins.com'){//测试环境
+	GConfig.appId = 'wxf57af8f59a52c59a'
+} else if (location.host === 'prepinsuranceapixxb.bz-ins.com'){
+	GConfig.appId = 'wx22904344508fbb5f'
+}
+new Vue({
+	el:".box",
+	data:function(){
+		return {
+			a:1
+		}
+	},
+	methods:{
+		invitate:function(){
+			location.href = "/quote"
+		},
+		share:function(){
+			if (Util.getCookie("AccessToken") && Util.getCookie("userInfo")) {
+				if(Util.getCookie("userInfo").uid){
+					location.href = "share.html?id=" + (Util.getCookie("userInfo").uid)
+				} else {
+					alert("网络异常")
+				}
+            } else {
+                if(Util.userAgentType() === 'wechat'){//微信中
+                    Util.setSessionData("entryUrl",location.href);
+                    let verifyUrl = encodeURIComponent(`${location.origin}/wxlogin`);
+                    location.href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${GConfig.appId}&redirect_uri=${verifyUrl}&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect`
+                } else {//其他浏览器手机号登录
+					location.href = "/login?redirect=" + location.href
+                }
+            }
+		}
+	}
+})
+</script>
+</html>

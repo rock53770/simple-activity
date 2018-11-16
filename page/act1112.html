@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Keywords" content="新欣保保险 保险 网络 科技">
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+		<meta name="description" content="新欣保保险">
+		<meta http-equiv="Expires" content="-1">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Pragma" content="no-cache">
+		<title>精英团体pk赛</title>
+		<script src="../plugins/xxRem.js"></script>
+		<script src="../plugins/zepto.min.js"></script>
+		<link href="../css/reset.css" rel="stylesheet">
+		<link href="../css/act1112/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="../plugins/layer/need/layer.css">
+		<script src="../plugins/layer/layer.js"></script>
+	</head>
+	<body>
+		<div class="act-ct">
+			<section>
+				<div class="u-bar"></div>
+				<div class="m-ct">
+					<img src="../img/act1112/tt.png" alt="" class="u-tt">
+					<p class="u-time ft14 cl-black">统计日期：2018.11.14-2018.11.27</p>
+					<div class="m-vs">
+						<div>
+							<img src="../img/act1112/hz.png" alt="" class="w42">
+							<p class="cl-blue mt8" id="J_hzsum">0人</p>
+						</div>
+						<div>
+							<img src="../img/act1112/vs.png" alt="" class="w32">
+							<p></p>
+						</div>
+						<div>
+							<img src="../img/act1112/cs.png" alt="" class="w42">
+							<p class="cl-red mt8" id="J_cssum">0人</p>
+						</div>
+					</div>
+					<div class="u-top">
+						<div class="tc">
+							<img src="../img/act1112/silver.png" alt="" class="por top8 w31">
+							<div class="por w55 bgc-gray s-circle h55"></div>
+							<span class="ft14 cl-black ellipsis">XXX</span>
+						</div>
+						<div class="tc">
+							<img src="../img/act1112/gold.png" alt="" class="por top10 w40">
+							<div class="por w62 bgc-gray s-circle h62"></div>
+							<span class="ft14 cl-black ellipsis">XXX</span>
+						</div>
+						<div class="tc">
+							<img src="../img/act1112/copper.png" alt="" class="por top8 w31">
+							<div class="por w55 bgc-gray s-circle h55"></div>
+							<span class="ft14 cl-black ellipsis">XXX</span>
+						</div>
+					</div>
+					<div class="m-list ofh">
+						<div class="u-th cl-red ft17 b-fl s-jcsa mb15">
+							<span class="w-25">排名</span>
+							<span class="w-25">昵称</span>
+							<span class="w-25">推荐数</span>
+							<span class="w-25">地区</span>
+						</div>
+						<ul class="u-trs cl-black ft15 mb40" id="J_list"></ul>
+					</div>
+				</div>
+			</section>
+			<p class="mt13 mb25 tc cl-white">*排行榜实时更新</p>
+		</div>
+		<script type="text/plain" id="tpl_list">
+			<%for(var i=0;i<data.length;i++){%>
+				<li class="u-item b-fl s-jcsa">
+					<span class="w-25 ellipsis"><%= data[i].rankId %></span>
+					<span class="w-25 ellipsis"><%= data[i].nickName %></span>
+					<span class="w-25 ellipsis"><%= data[i].refereeCount %></span>
+					<span class="w-25 ellipsis"><%= data[i].cityName %></span>
+				</li>
+			<%}%>
+		</script>
+		<script src="../plugins/xxTemplate.js"></script>
+		<script>
+			$(function(){
+				var hzSum = $('#J_hzsum'),
+					csSum = $('#J_cssum');
+				$.ajax({
+					url:'/api/m/insurance/activity/city/pk/rank',
+					type:'GET',
+					dataType:'JSON',
+					success:function(res){
+						var rslt = JSON.parse(res);
+						if(rslt.code&&rslt.code==1){
+							hzSum.text(rslt.object.hzTotal+'人');
+							csSum.text(rslt.object.csTotal+'人');
+							var data = rslt.object.list;
+							var dataTop = data.splice(0, 3),
+								dataLeft = data;
+							//渲染前三名
+							var top3 = $('.u-top').find('div.s-circle');
+							//修改顺序;把第二个dom放到第一个
+							top3[1]= top3.splice(0,1,top3[1])[0];
+							top3.each(function(i, ele){
+								$(ele).css('backgroundImage','url("'+dataTop[i].portrait+'")');
+								$(ele).siblings('span').text(dataTop[i].nickName?dataTop[i].nickName:'XXX')
+							})
+							var tpl = $('#tpl_list').html();
+							var html = $('#J_list');
+							//开始渲染
+							var all = dataTop.concat(dataLeft);// 重新合并
+							var compiler = xxTPL(tpl);
+							html.html(compiler(all));
+						}else{
+							layer.open({
+								content: rslt.message,
+								skin: 'msg',
+								time: 2 //2秒后自动关闭
+							})
+						}
+						
+					},
+					error:function(){}
+				})
+			});
+		</script>
+	</body>
+</html>

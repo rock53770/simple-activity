@@ -1,0 +1,161 @@
+.b-fl {
+  display: flex;
+}
+.s-jcsa {
+  justify-content: space-around;
+}
+.ofh {
+  overflow: hidden;
+}
+.por {
+  position: relative;
+}
+.poa {
+  position: absolute;
+}
+.top8 {
+  top: 0.16rem;
+}
+.top10 {
+  top: 0.2rem;
+}
+.w-25 {
+  width: 25%;
+}
+.w31 {
+  width: 0.62rem;
+}
+.w32 {
+  width: 0.64rem;
+}
+.w40 {
+  width: 0.8rem;
+}
+.w42 {
+  width: 0.84rem;
+}
+.w55 {
+  width: 1.1rem;
+}
+.w62 {
+  width: 1.24rem;
+}
+.h55 {
+  height: 1.1rem;
+}
+.h62 {
+  height: 1.24rem;
+}
+.mt8 {
+  margin-top: 0.16rem;
+}
+.mt13 {
+  margin-top: 0.26rem;
+}
+.mb25 {
+  margin-bottom: 0.5rem;
+}
+.mb15 {
+  margin-bottom: 0.3rem;
+}
+.mb40 {
+  margin-bottom: 0.8rem;
+}
+.ft14 {
+  font-size: 0.28rem;
+}
+.ft15 {
+  font-size: 0.3rem;
+}
+.ft17 {
+  font-size: 0.34rem;
+}
+.cl-white {
+  color: #fff;
+}
+.cl-black {
+  color: #333;
+}
+.cl-blue {
+  color: #008EFF;
+}
+.cl-red {
+  color: #F85145;
+}
+.bgc-gray {
+  background-color: #E8E8E8;
+}
+.s-circle {
+  border-radius: 50%;
+}
+.tc {
+  text-align: center;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.act-ct {
+  overflow: hidden;
+  font-size: 0.3rem;
+  background: #0E1F6F url("../../img/act1112/banner.png") no-repeat center top;
+  background-size: contain;
+}
+.act-ct section {
+  position: relative;
+  width: 6.58rem;
+  background: #fff;
+  margin: 9rem auto 0;
+}
+.act-ct section .u-bar {
+  position: absolute;
+  left: 50%;
+  top: -0.2rem;
+  transform: translate(-50%, 0);
+  width: 7.1rem;
+  height: 0.56rem;
+  background: linear-gradient(360deg, #ffe246 0%, #ffac00 100%);
+  box-shadow: 0 0.06rem 0.08rem 0 rgba(68, 8, 16, 0.2);
+  border-radius: 0.28rem;
+}
+.act-ct section .m-ct {
+  text-align: center;
+}
+.act-ct section .m-ct .u-tt {
+  width: 3.78rem;
+  margin-top: 0.8rem;
+}
+.act-ct section .m-ct .u-time {
+  margin: 0.32rem 0;
+}
+.act-ct section .m-ct .m-vs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 5.94rem;
+  height: 1.36rem;
+  margin: 0 auto 0.48rem;
+  background: #ffe04b;
+  border-radius: 0.1rem;
+}
+.act-ct section .m-ct .u-top {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-bottom: 0.76rem;
+}
+.act-ct section .m-ct .u-top > div {
+  width: 32%;
+}
+.act-ct section .m-ct .u-top > div:nth-child(2) {
+  width: 36%;
+}
+.act-ct section .m-ct .u-top div.s-circle {
+  margin: 0 auto;
+  background-size: contain;
+}
+.act-ct section .m-ct .u-item {
+  height: 0.68rem;
+  line-height: 0.68rem;
+}

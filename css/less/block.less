@@ -1,0 +1,278 @@
+﻿
+// width:
+.width (@width: 10) {
+    width: @width/1px !important;
+}
+.w-auto { width: auto !important; }
+.w-33   { width: 33.33333%; }
+.w-40   { width: 40%; }
+.w-50   { width: 50%; }
+.w-80   { width:80%; }
+.w-100  { width:100%; }
+
+.w5     { .width(5); }
+.w10    { .width(10); }
+.w15    { .width(15); }
+.w20    { .width(20); }
+.w25    { .width(25); }
+.w30    { .width(30); }
+.w35    { .width(35); }
+.w40    { .width(40); }
+.w45    { .width(45); }
+.w50    { .width(50); }
+.w60    { .width(60); }
+.w65    { .width(65); }
+.w70    { .width(70); }
+.w80    { .width(80); }
+.w90    { .width(90); }
+.w100   { .width(100); }
+.w120   { .width(120); }
+.w150   { .width(150); }
+.w200   { .width(200); }
+.w300   { .width(300); }
+
+//height
+.height (@height: 10) {
+  height: @height/1px !important;
+}
+
+.h-50{height:50%;}
+.h-80{height:80%;}
+.h-100{height:100%;}
+.wh-100{width:100%; height:100%;}
+
+.h1     { .height(1); }
+.h5     { .height(5); }
+.h10    { .height(10); }
+.h15    { .height(15); }
+.h20    { .height(20); }
+.h25    { .height(25); }
+.h30    { .height(30); }
+.h35    { .height(35); }
+.h40    { .height(40); }
+.h45    { .height(45); }
+.h50    { .height(50); }
+.h55    { .height(55); }
+.h60    { .height(60); }
+.h65    { .height(65); }
+.h70    { .height(70); }
+.h80    { .height(80); }
+.h90    { .height(90); }
+.h100   { .height(100); }
+
+.h28    { .height(28); }
+.h42    { .height(42); }
+//line-height
+.line-height(@n) when (@n > 0) {
+  .line-height((@n - 1));
+  .lh@{n} {
+    line-height: @n/1px !important;
+  }
+}
+.line-height(30);
+.lh35 { line-height: 35px; }
+.lh40 { line-height: 40px; }
+.lh45 { line-height: 45px; }
+.lh50 { line-height: 50px; }
+.lh55 { line-height: 55px; }
+.lh60 { line-height: 60px; }
+.lh80 { line-height: 80px; }
+
+.lh-100{line-height:100%;}
+
+//margin
+.margin(@n, @type: t) when (@n > 0) {
+  .margin((@n - 1), @type);
+  & when (@type = t) {
+    @path: top;
+    .m@{type}@{n} {
+      margin-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = r) {
+    @path: right;
+    .m@{type}@{n} {
+      margin-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = b) {
+    @path: bottom;
+    .m@{type}@{n} {
+      margin-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = l) {
+    @path: left;
+    .m@{type}@{n} {
+      margin-@{path}: (1px * @n) !important;
+    }
+  }
+}
+
+.mlr5  { margin: 0 5px !important; }
+.mlr10 { margin: 0 10px !important; }
+.mlr12 { margin: 0 12px !important; }
+.mlr15 { margin: 0 15px !important; }
+.mlr20 { margin: 0 20px !important; }
+.mlr25 { margin: 0 25px !important; }
+.mlr30 { margin: 0 30px !important; }
+.mc    { margin: 0 auto !important; }
+.m0    { margin: 0 !important; }
+
+.margin(40, t);
+.margin(40, r);
+.margin(40, b);
+.margin(40, l);
+.mt0   {margin-top: 0 !important;}
+.mr15  {margin-right: 15px !important;}
+.mr50  {margin-right: 50px !important;}
+// padding: top,right,bottom,left
+// 1~40
+.padding(@n, @type: t) when (@n > 0) {
+  .padding((@n - 1), @type);
+  & when (@type = t) {
+    @path: top;
+    .p@{type}@{n} {
+      padding-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = r) {
+    @path: right;
+    .p@{type}@{n} {
+      padding-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = b) {
+    @path: bottom;
+    .p@{type}@{n} {
+      padding-@{path}: (1px * @n) !important;
+    }
+  }
+  & when (@type = l) {
+    @path: left;
+    .p@{type}@{n} {
+      padding-@{path}: (1px * @n) !important;
+    }
+  }
+}
+.p0    { padding: 0 !important; }
+.p3    { padding: 3px !important; }
+.p5    { padding: 5px !important; }
+.p10   { padding: 10px !important; }
+.p15   { padding: 15px !important; }
+.p20   { padding: 20px !important; }
+.p12   { padding: 12px !important; }
+
+.plr5  { padding: 0 5px !important;  }
+.plr10 { padding: 0 10px !important; }
+.plr12 { padding: 0 12px !important; }
+.plr15 { padding: 0 15px !important; }
+.plr20 { padding: 0 20px !important; }
+
+.padding(40, t);
+.padding(40, r);
+.padding(40, b);
+.padding(40, l);
+
+
+/* border 1px */
+.half-border-surround{
+  .half-border(all, #ddd, 3px)
+}
+.half-border-left{
+  .half-border(left)
+}
+.half-border-bottom{
+  .half-border(bottom)
+}
+.half-border-top{
+  .half-border(top)
+}
+
+.half-border(top, @border-color:#ddd,@border-style:solid){
+  &:after{
+    border-top-width: 1px !important;
+  }
+}
+.half-border(right, @border-color:#ddd,@border-style:solid){
+  &:after{
+    border-right-width: 1px !important;
+  }
+}
+.half-border(bottom, @border-color:#ddd,@border-style:solid){
+  &:after{
+    border-bottom-width: 1px !important;
+  }
+}
+.half-border(left, @border-color:#ddd,@border-style:solid){
+  &:after{
+    border-left-width: 1px !important;
+  }
+}
+.half-border(all, @border-color:#ddd, @border-radius:0px, @bg-color: transparent){
+  &:after{
+    border-width: 1px !important;
+  }
+}
+.half-border(@_, @border-color:#ddd, @border-radius:0px, @bg-color: transparent,@border-style:solid){
+  position: relative;
+  z-index: 1;
+  &:after{
+    z-index: -1;
+    box-sizing: border-box;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    height: 200%;
+    background-color: @bg-color;
+    pointer-events: none;
+    -webkit-transform: scale(0.5,0.5);
+    border-radius: @border-radius * 2;
+    border-style: @border-style;
+    border-color: @border-color;
+    border-width: 0 0 0 0;
+    transform-origin: top left;
+    transform: scale(0.5,0.5);
+  }
+}
+//border-radius
+.bdr3  { border-radius:3px; }
+.bdr5  { border-radius:5px; }
+.bdr10 { border-radius:10px; }
+.bdr25 { border-radius:25px; }
+.bdr-50 { border-radius:50%; }
+//font
+.font-size(@size: 14) {
+  font-size: @size/1px;
+}
+.font-loop(@n) when(@n > 9) {
+  .font-loop((@n - 1));
+  .ft@{n} {
+    .font-size(@n);
+  }
+}
+.font-loop(30);//.ft10,.ft11,.....,ft30
+.ft0 { .font-size(0); }
+.ft35 { .font-size(35); }
+.ft16 { .font-size(16); }
+
+.l0{
+  left:0
+}
+.r0{
+  right:0
+}
+.t0{
+  top:0
+}
+.b0{
+  bottom:0
+}
+.zi10{
+  z-index:10
+}
+.zi1000{
+  z-index:1000
+}

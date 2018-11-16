@@ -1,0 +1,42 @@
+﻿// 字体颜色
+.cl-black  { color: @black !important; }
+.cl-white  { color: @white !important; }
+.cl-gray   { color: @gray !important; }
+.cl-dgray  { color: @dgray !important; }
+.cl-lgray  { color: @lgray !important; }
+
+.cl-red    { color: @red !important; }
+.cl-orange { color: @orange !important; }
+.cl-yellow { color: @yellow !important; }
+.cl-blue   { color: @blue !important; }
+
+.cl-black  { color: @black !important; }
+// 背景颜色值定义
+.bg-no     { background: none !important; }
+.bg        { background-color: @body-bg !important;}
+.bg-black  { background-color: @black !important; }
+.bg-white  { background-color: @white !important; }
+.bg-gray   { background-color: @gray !important; }
+.bg-dgray  { background-color: @dgray !important; }
+.bg-lgray  { background-color: @lgray !important; }
+
+.bg-red    { background-color: @red !important; }
+.bg-orange { background-color: @orange !important; }
+.bg-yellow { background-color: @yellow !important; }
+.bg-blue   { background-color: @blue !important; }
+
+// icons color
+.color-icon(@color) {
+    &:before {
+        color: @color !important;
+    }
+}
+.ci-white  { .color-icon(@color: @white); }
+.ci-black  { .color-icon(@color: @black); }
+.ci-blue   { .color-icon(@color: @blue); }
+.ci-red    { .color-icon(@color: @red); }
+.ci-orange { .color-icon(@color: @orange); }
+.ci-gray   { .color-icon(@color: @gray); }
+.ci-dgray  { .color-icon(@color: @dgray); }
+.ci-black  { .color-icon(@color: @black); }
+

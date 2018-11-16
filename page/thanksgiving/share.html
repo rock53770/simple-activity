@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Keywords" content="新欣保保险 保险 网络 科技">
+<meta name="description" content="新欣保保险">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>新欣保保险感恩节回馈</title>
+<link href="../../css/common.css" rel="stylesheet">
+<script src="../../plugins/zepto.min.js"></script>
+<script>
+	(function () {
+		function e() {
+		var f = document.documentElement.clientWidth * 200 / 750;
+		window.fontSize = f;
+		document.querySelector("html").style.fontSize = f + "px"
+		}
+		e();
+		window.addEventListener("resize", e)
+	})();
+</script>
+</head>
+<body style="background-color:#cc031a;">
+<div class="box">
+	<img src="img/2.jpg" class="w-100 show">
+	<div class="pos-a t0 l0 w-100 ta-c">
+		<img src="" style="width:1.2rem;height:1.2rem; margin-top:3.4rem;" id="img">
+	</div>
+</div>
+</body>
+<script>
+function getQueryValue(key){
+    var match=location.search.match(new RegExp(key+'=([^&]*)'));
+    return match&&match[1]||'';
+}
+	$.ajax({
+		url:'/api/m/insurance/xxb/user-agent/get-qrcode',
+		type:'GET',
+		dataType:'JSON',
+		data:{
+			uid:getQueryValue("id")
+		},
+		success:function(result){
+			var res = JSON.parse(result);
+			if(res.code == 1 && res.object) {
+				document.getElementById("img").src = res.object;
+			} else {
+				alert("网路异常，请重试")
+			}
+		}
+	})
+</script>
+</html>

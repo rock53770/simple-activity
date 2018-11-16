@@ -1,0 +1,161 @@
+﻿*{box-sizing: border-box}
+.fl { float: left; }
+.fr { float: right; }
+.clearfix {
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+    visibility: hidden;
+  }
+}
+/*clear清除浮动和防止margin-top向上传递*/
+.clear{zoom:1;/*只有ie能识别*/}
+.clear:before{content:"";display:table;}
+.clear:after{content:"";display:block;clear:both;}
+
+.show-ib {
+  display: inline-block !important;
+}
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.of-hide{
+  overflow:hidden;
+}
+.of-visible{
+  overflow:visible!important;
+}
+.m-h-none{
+  max-height:none!important;
+}
+
+.pos-f { position: fixed !important; }
+.pos-a { position: absolute !important; }
+.pos-r { position: relative !important; }
+.pos-i { position: inherit !important; }
+
+.fw-n { font-weight: normal !important; }
+.fw-b { font-weight: bold !important; }
+
+.ta-c { text-align: center !important; }
+.ta-l { text-align: left !important; }
+.ta-r { text-align: right !important; }
+.ta-j { text-align: justify !important; }
+.ver-align-mid{
+  vertical-align: middle;
+}
+
+.oneline   { white-space: nowrap !important; } // 文字保持一行不换行
+.wordbreak { // 强行换行
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.ellipsis  { .ellipsis(); } // 单行文字显示省略号...
+
+.all-center {
+  left: 50%;
+  top: 50%;
+  transform:translate(-50%,-50%);
+}
+
+// 居中的几种方法
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center-fixed {
+  position: fixed;
+  .all-center;
+}
+.center-absolute {
+  position: absolute;
+  .all-center;
+}
+
+//css3 flex弹性布局
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+.flex-1{
+  flex:1;
+}
+.flex-w {
+  flex-wrap: wrap;
+}
+.justify-sb{
+  justify-content: space-between;
+}
+.justify-c{
+  justify-content: center;
+}
+
+
+.flex-column {
+  display: flex;
+  flex-direction:column;
+}
+.mask {
+  .pos-f;
+  .flex-center;
+  width:100%;
+  height:100%;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+// 内滚动
+// ios 弹性滚动
+// android 没有效果
+.scrollfix{
+  .scrollfix();
+  overflow-y: auto;
+}
+.scrollfix-x {
+  .scrollfix();
+  overflow-x: auto;
+}
+.scrollfix() {
+  width: 100%;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gradient (@startColor:#eee, @endColor: white) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+}
+
+// 文字超出显示....
+// 一行和多行
+.ellipsis() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.line-clamp(@line: 3) {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+
+
+
+
+
